@@ -1,0 +1,4 @@
+#ignorar a pasta do vscode
+.vscode
+.vscode/settings.json
+.vscode/settings.json
