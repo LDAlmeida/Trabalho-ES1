@@ -11,8 +11,8 @@ class MenuProfessor:
     c = 0
 
     def discovery_departament(self):
-        self.con = pymysql.connect(host='localhost', user='endhel', password='endhellopes98', db='educatorr',
-                                   charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        self.con = pymysql.connect(host='educatorr.ccqy8084hset.sa-east-1.rds.amazonaws.com', user='admin', password='rootroot', db='educatorr',
+                                   charset='utf8', cursorclass=pymysql.cursors.DictCursor)
         self.c = self.con.cursor()
 
         query = "SELECT d.Nome FROM professor p, departamento d WHERE p.Email = %s " \

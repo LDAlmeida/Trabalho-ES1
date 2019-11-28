@@ -19,8 +19,8 @@ class LoginWindow:
 
     def login(self):
 
-        self.con = pymysql.connect(host='localhost', user='endhel', password='endhellopes98', db='educatorr',
-                                   charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        self.con = pymysql.connect(host='educatorr.ccqy8084hset.sa-east-1.rds.amazonaws.com', user='admin', password='rootroot', db='educatorr',
+                                   charset='utf8', cursorclass=pymysql.cursors.DictCursor)
         self.c = self.con.cursor()
 
         query = 'SELECT Email FROM login WHERE Name = %s and Password = %s;'
@@ -47,8 +47,8 @@ class LoginWindow:
 
     def signin_up(self):
 
-        self.con = pymysql.connect(host='localhost', user='endhel', password='endhellopes98', db='educatorr',
-                                   charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        self.con = pymysql.connect(host='educatorr.ccqy8084hset.sa-east-1.rds.amazonaws.com', user='admin', password='rootroot', db='educatorr',
+                                   charset='utf8', cursorclass=pymysql.cursors.DictCursor)
         self.c = self.con.cursor()
 
         aux = False

@@ -45,8 +45,8 @@ class UpdateClass:
         self.absences_value.set(self.curItem['values'][4])
 
     def create_list(self):
-        self.con = pymysql.connect(host='localhost', user='endhel', password='endhellopes98', db='educatorr',
-                                   charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        self.con = pymysql.connect(host='educatorr.ccqy8084hset.sa-east-1.rds.amazonaws.com', user='admin', password='rootroot', db='educatorr',
+                                   charset='utf8', cursorclass=pymysql.cursors.DictCursor)
         self.c = self.con.cursor()
 
         res = []
