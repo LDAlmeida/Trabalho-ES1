@@ -51,7 +51,7 @@ class ViewProfessor:
 
     def delete_record(self):
         try:
-            self.c.execute("DELETE FROM professor WHERE ID_professor = %s", (self.curItem['values'][0]))
+            self.c.execute("DELETE FROM professor WHERE CPF = %s", (self.curItem['values'][1]))
             print("DADOS DELETADOS")
 
         except Exception as e2:
