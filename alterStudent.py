@@ -56,10 +56,11 @@ class ViewStudent:
 
     def delete_record(self):
         try:
-            self.c.execute("SELECT ID_aluno FROM aluno WHERE Num_Matricula = %s", (self.curItem['values'][1]))
+            self.c.execute("SELECT ID_aluno, Email FROM aluno WHERE Num_Matricula = %s", (self.curItem['values'][1]))
             res = self.c.fetchall()
             self.c.execute("DELETE FROM aluno_disciplina WHERE ID_aluno = %s", res[0]['ID_aluno'])
             self.c.execute("DELETE FROM aluno WHERE CPF = %s", (self.curItem['values'][2]))
+            self.c.execute("DELETE FROM login WHERE Email = %s", res[0]['Email'])
             print("DADOS DELETADOS")
 
         except Exception as e2:

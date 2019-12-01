@@ -51,8 +51,11 @@ class ViewProfessor:
 
     def delete_record(self):
         try:
+            self.c.execute("SELECT Email FROM professor WHERE CPF = %s", (self.curItem['values'][1]))
+            res = self.c.fetchall()
             self.c.execute("UPDATE disciplina SET Professor = %s WHERE Professor = %s", ("", self.curItem['values'][0]))
             self.c.execute("DELETE FROM professor WHERE CPF = %s", (self.curItem['values'][1]))
+            self.c.execute("DELETE FROM login WHERE Email = %s", res[0]['Email'])
             print("DADOS DELETADOS")
 
         except Exception as e2:
