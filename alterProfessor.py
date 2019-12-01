@@ -121,6 +121,13 @@ class ViewProfessor:
 
                 temp = self.Name_value.get().split()
                 email = temp[0].lower() + '.' + temp[-1].lower() + '@prof.ufjm.com'
+
+                self.c.execute("SELECT Email FROM professor WHERE Email = %s", email)
+                res = self.c.fetchall()
+
+                if res:
+                    email = temp[0].lower() + '.' + str(self.CPF_value.get()) + '@prof.ufjm.com'
+                    
                 self.c.execute("""INSERT INTO professor (Nome, CPF, Especialidade, Email, ID_departamento) 
                 VALUES(%s,%s,%s,%s,%s) """, (self.Name_value.get(), self.CPF_value.get(),
                                              self.Especialidade_value.get(), email,
