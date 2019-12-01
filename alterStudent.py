@@ -141,10 +141,19 @@ class ViewStudent:
                     temp = self.Name_value.get().split()
                     email = temp[0].lower() + '.' + temp[-1].lower() + '@aluno.ufjm.com'
 
+                    self.c.execute("SELECT Email FROM aluno WHERE Email = %s", email)
+                    res = self.c.fetchall()
+
+                    if res:
+                        email = temp[0].lower() + '.' + str(self.Num_Matricula_value.get()) + '@aluno.ufjm.com'
+                        
                     self.c.execute("""INSERT INTO aluno (Nome, Num_Matricula, CPF, RG, Endereco, Email, ID_curso) 
                     VALUES(%s,%s,%s,%s,%s,%s,%s) """, (self.Name_value.get(), self.Num_Matricula_value.get(),
                                                        self.CPF_value.get(), self.RG_value.get(),
                                                        self.Endereco_value.get(), email, self.ID_curso_value.get(),))
+
+                        
+                        
                     self.con.commit()
                     self.clear_entries()
                 except pymysql.IntegrityError:
