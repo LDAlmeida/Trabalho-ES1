@@ -3,7 +3,7 @@ from tkinter import messagebox
 from datetime import datetime
 import pymysql.cursors
 from update_data_student import UpdateData
-from view_class import ViewClass
+from view_class import ViewClassStudent
 from school_record import SchoolRecord
 
 
@@ -37,7 +37,7 @@ class MenuStudent:
         UpdateData(self.Email)
 
     def view_class(self):
-        ViewClass(self.Email)
+        ViewClassStudent(self.Email)
 
     def school_record(self):
         SchoolRecord(self.Email)
@@ -51,7 +51,8 @@ class MenuStudent:
         self.root_student.geometry('600x600+350+20')
         self.root_student['bg'] = 'white'
 
-        self.top_frame = tk.Frame(self.root_student, bg='#66ff66', width=600, height=100).pack(side=tk.TOP)
+        self.top_frame = tk.Frame(self.root_student, bg='#66ff66', width=600, height=100)
+        self.top_frame.pack(side=tk.TOP)
         tk.Frame(self.root_student, bg='#66ff66', width=600, height=20).pack(side=tk.BOTTOM)
 
         tk.Label(self.top_frame, text='Educatorr', font='Avalon 25 bold', bg='#66ff66', fg='white').place(x=0, y=0)

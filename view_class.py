@@ -3,7 +3,7 @@ import pymysql.cursors
 from tkinter import ttk
 
 
-class ViewClass:
+class ViewClassStudent:
 
     con = 0
     c = 0

@@ -39,7 +39,8 @@ class MenuProfessor:
         self.root_professor.geometry('600x600+350+20')
         self.root_professor['bg'] = 'white'
 
-        self.top_frame = tk.Frame(self.root_professor, bg='#66ff66', width=600, height=100).pack(side=tk.TOP)
+        self.top_frame = tk.Frame(self.root_professor, bg='#66ff66', width=600, height=100)
+        self.top_frame.pack(side=tk.TOP)
         tk.Frame(self.root_professor, bg='#66ff66', width=600, height=20).pack(side=tk.BOTTOM)
 
         tk.Label(self.top_frame, text='Educatorr', font='Avalon 25 bold', bg='#66ff66', fg='white').place(x=0, y=0)
